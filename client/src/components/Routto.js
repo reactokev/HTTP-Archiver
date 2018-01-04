@@ -545,8 +545,8 @@ class Routto extends Component {
     {/* <p style={{fontSize:14,}}>Listenting to <span style={{fontSize:14,fontFamily:'italic',color:'#3b5998'}}>{this.state.value == "" ? "..." : this.state.value}</span></p> */}
     <p style={{fontSize:13}}><b><i>Num. of requests:</i></b> {this.state.data.length == 0 ? 0 : this.state.data.length}
     <span style={{paddingLeft:25}}><b><i>clientIPAddress:</i></b> {this.state.data.length == 0 ? "unknown" : this.state.ip}
-    <span style={{paddingLeft:25}}><b><i>Latitude:</i></b> {this.state.data.length == 0 ? "unknown" : this.state.latitude}
-    <span style={{paddingLeft:25}}><b><i>Longitude:</i></b> {this.state.data.length == 0 ? "unknown" : this.state.longitude}</span></span></span></p>
+    <span style={{paddingLeft:25}}><b><i>Latitude:</i></b> {this.state.data.length == 0 ? "unknown" : this.state.latitude == null ? "unknown" : this.state.latitude}
+    <span style={{paddingLeft:25}}><b><i>Longitude:</i></b> {this.state.data.length == 0 ? "unknown" : this.state.longitude == null ? "unknown" : this.state.longitude}</span></span></span></p>
     </div>
     </div>
     );
