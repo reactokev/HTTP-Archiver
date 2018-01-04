@@ -1,0 +1,18 @@
+{
+  "name": "har",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.3",
+    "nightmare": "^2.10.0",
+    "nightmare-har-plugin": "^0.9.1",
+    "password-generator": "^2.1.0"
+  }
+}

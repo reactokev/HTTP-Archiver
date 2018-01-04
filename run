@@ -1,0 +1,12 @@
+#!/bin/bash
+called=$_
+[[ $called != $0 ]] && echo "Script is being sourced" || echo "Script is being run"
+run="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $run
+osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "cd '$(PWD)'; npm start" in selected tab of the front window'
+osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "t" using command down' -e 'tell application "Terminal" to do script "cd '$(PWD)'; cd client; npm start" in selected tab of the front window'
+
+
+
+
+
