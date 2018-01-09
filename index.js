@@ -23,17 +23,21 @@ app.post('/api/post', function (req, res) {
 app.get('/api/get', (req, res) => {
   harPlugin.install(Nightmare)
 
-  let options = {
-    waitTimeout: 5000
-  }
-
-  let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions(), options))
+  let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions()))
 
   nightmare
     .waitForDevtools()
     .goto(`${data1.url}`)
     .getHAR()
-    .end()
+    // .type('input[title="Search"]', 'facebook')
+    // .click('input[type="submit"]')
+    // .click('a[href^="https://www.facebook.com/login/"]')
+    .type('input[type="text"]','')
+    .type('input[type="text"]','917892621974')
+    .type('input[type="password"]','justicehabs1')
+    .click('button[type="submit"]')
+    .wait(20000)
+    .getHAR()
     .then((result) => { res.json(result) })
     .catch((error) => console.error(error))
 });

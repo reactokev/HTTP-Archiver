@@ -13,7 +13,7 @@ class Routto extends Component {
         height: window.innerHeight,
         boxfill: null,
         status: 0,
-        ip: ip.address(),
+        ip: null,
         box: '#fff',
         value: '',
         latitude: null,
@@ -66,6 +66,19 @@ class Routto extends Component {
   componentDidMount() {
     // this.setState({data: obj.entries})
       this.location();
+      this.ip();
+  }
+
+  ip = async () => {
+    await fetch('https://api.ipify.org?format=json')
+    .then(res => res.json())
+    .then(result => {
+      //   this.state.data.length != 0 ? alert('Waiting for page to load') : alert('Waiting for page to load');
+      this.setState({ip: result.ip})
+      })
+    .catch((error) => {
+      alert(error);
+    });
   }
 
   location = async () => {
