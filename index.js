@@ -24,7 +24,7 @@ app.get('/api/get', (req, res) => {
   harPlugin.install(Nightmare)
 
   let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions()))
-  data1.url == ("http://facebook.com/login" || "https://facebook.com/login") || ("http://www.facebook.com/login" || "https://www.facebook.com/login")  ?
+ if(data1.url == 'http://facebook.com/login') {
   nightmare
     .waitForDevtools()
     .goto(`${data1.url}`)
@@ -37,7 +37,50 @@ app.get('/api/get', (req, res) => {
     .getHAR()
     .then((result) => { res.json(result) })
     .catch((error) => console.error(error))
-    :
+ }
+ else if(data1.url == 'https://facebook.com/login') {
+  nightmare
+    .waitForDevtools()
+    .goto(`${data1.url}`)
+    .getHAR()
+    .type('input[type="text"]','')
+    .type('input[type="text"]','917892621974')
+    .type('input[type="password"]','justicehabs1')
+    .click('button[type="submit"]')
+    .wait(20000)
+    .getHAR()
+    .then((result) => { res.json(result) })
+    .catch((error) => console.error(error))
+ }
+ else if(data1.url == 'http://www.facebook.com/login') {
+  nightmare
+    .waitForDevtools()
+    .goto(`${data1.url}`)
+    .getHAR()
+    .type('input[type="text"]','')
+    .type('input[type="text"]','917892621974')
+    .type('input[type="password"]','justicehabs1')
+    .click('button[type="submit"]')
+    .wait(20000)
+    .getHAR()
+    .then((result) => { res.json(result) })
+    .catch((error) => console.error(error))
+ }
+ else if(data1.url == 'https://www.facebook.com/login') {
+  nightmare
+    .waitForDevtools()
+    .goto(`${data1.url}`)
+    .getHAR()
+    .type('input[type="text"]','')
+    .type('input[type="text"]','917892621974')
+    .type('input[type="password"]','justicehabs1')
+    .click('button[type="submit"]')
+    .wait(20000)
+    .getHAR()
+    .then((result) => { res.json(result) })
+    .catch((error) => console.error(error))
+ }
+  else {
     nightmare
     .waitForDevtools()
     .goto(`${data1.url}`)
@@ -45,6 +88,7 @@ app.get('/api/get', (req, res) => {
     .end()
     .then((result) => { res.json(result) })
     .catch((error) => console.error(error))
+  }
 });
 
 // The "catchall" handler: for any request that doesn't
