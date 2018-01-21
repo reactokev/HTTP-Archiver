@@ -5,6 +5,8 @@ const generatePassword = require('password-generator');
 let Nightmare = require('nightmare')
 let harPlugin = require('nightmare-har-plugin')
 var data1;
+var facebookdata;
+var googledata;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,80 +17,65 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Put all API endpoints under '/api'
-app.post('/api/post', function (req, res) {
+app.post('/api/post/facebook', function (req, res) {
+  res.send(req.body);
+  facebookdata = req.body;
+})
+
+app.post('/api/post/google', function (req, res) {
+  res.send(req.body);
+  googledata = req.body;
+})
+
+app.post('/api/post/url', function (req, res) {
   res.send(req.body);
   data1 = req.body;
 })
 
-app.get('/api/get', (req, res) => {
+app.get('/api/get/facebook', (req, res) => {
   harPlugin.install(Nightmare)
 
   let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions()))
- if(data1.url == 'http://facebook.com/login') {
   nightmare
     .waitForDevtools()
-    .goto(`${data1.url}`)
+    .goto('http://facebook.com/login')
     .getHAR()
     .type('input[type="text"]','')
-    .type('input[type="text"]','917892621974')
-    .type('input[type="password"]','justicehabs1')
+    .type('input[type="text"]',`${facebookdata.username}`)
+    .type('input[type="password"]',`${facebookdata.password}`)
     .click('button[type="submit"]')
     .wait(20000)
     .getHAR()
     .then((result) => { res.json(result) })
     .catch((error) => console.error(error))
- }
- else if(data1.url == 'https://facebook.com/login') {
-  nightmare
-    .waitForDevtools()
-    .goto(`${data1.url}`)
-    .getHAR()
-    .type('input[type="text"]','')
-    .type('input[type="text"]','917892621974')
-    .type('input[type="password"]','justicehabs1')
-    .click('button[type="submit"]')
-    .wait(20000)
-    .getHAR()
-    .then((result) => { res.json(result) })
-    .catch((error) => console.error(error))
- }
- else if(data1.url == 'http://www.facebook.com/login') {
-  nightmare
-    .waitForDevtools()
-    .goto(`${data1.url}`)
-    .getHAR()
-    .type('input[type="text"]','')
-    .type('input[type="text"]','917892621974')
-    .type('input[type="password"]','justicehabs1')
-    .click('button[type="submit"]')
-    .wait(20000)
-    .getHAR()
-    .then((result) => { res.json(result) })
-    .catch((error) => console.error(error))
- }
- else if(data1.url == 'https://www.facebook.com/login') {
-  nightmare
-    .waitForDevtools()
-    .goto(`${data1.url}`)
-    .getHAR()
-    .type('input[type="text"]','')
-    .type('input[type="text"]','917892621974')
-    .type('input[type="password"]','justicehabs1')
-    .click('button[type="submit"]')
-    .wait(20000)
-    .getHAR()
-    .then((result) => { res.json(result) })
-    .catch((error) => console.error(error))
- }
-  else {
+});
+
+app.get('/api/get/url', (req, res) => {
+  harPlugin.install(Nightmare)
+
+  let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions()))
     nightmare
     .waitForDevtools()
     .goto(`${data1.url}`)
     .getHAR()
-    .end()
     .then((result) => { res.json(result) })
     .catch((error) => console.error(error))
-  }
+  
+});
+
+app.get('/api/get/google', (req, res) => {
+  harPlugin.install(Nightmare)
+
+  let nightmare = Nightmare(Object.assign(harPlugin.getDevtoolsOptions()))
+    nightmare
+    .waitForDevtools()
+    .goto('http://www.google.com')
+    .type('input[type="text"]',`${googledata.content}`)
+    .click('button[type="submit"]')
+    .getHAR()
+    .then((result) => { res.json(result) })
+    .catch((error) => console.error(error))
+  
 });
 
 // The "catchall" handler: for any request that doesn't
