@@ -139,7 +139,7 @@ class Google extends Component {
         <h1 style={{margin:0,color:'#fff',paddingLeft:30,fontFamily:'italic',textShadow:'1px 1px'}}>HTTP <span style={{fontSize:28}}>Archiver</span></h1>
     </div>
     <div style={{width:'50%',height:'50px',marginLeft:10,paddingTop:"1px"}}>
-    <p ><i>Enter search keyword(s)</i> <span><input style={{width:'50%',padding:5}}  type="text" value={this.state.value} placeholder='ex: Taylor Swift' onChange={this.handleChange} /><button style={{padding:5}} onClick={() => this.handleSubmit(this.state.value)} value="Submit">Submit</button></span></p>
+    <p ><i>Enter search keyword(s)</i> <span><input style={{width:'50%',padding:5}}  type="text" value={this.state.value} placeholder='ex: Taylor Swift' onChange={this.handleChange} /><button style={{padding:5}} onClick={() => this.handleSubmit(this.state.value)} value="Submit">Search</button></span></p>
     </div>
     {/* <div style={{width:'100%',height:'20px',marginLeft:10,paddingTop:0,}}> onKeyPress={event.keyCodey == 13 ? () => this.handleSubmit(this.state.value) : false}
         <p style={{fontSize:14}}>Client IP adress:{this.state.ip}   Location: lat-{this.state.latitude}, lon-{this.state.longitude}</p>
