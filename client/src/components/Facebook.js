@@ -151,7 +151,7 @@ class Facebook extends Component {
     </div>
     <div style={{width:'50%',height:'100px',marginLeft:10,paddingTop:"1px"}}>
     <p ><i>Username: </i><input style={{width:300}}  type="text" value={this.state.value} onChange={this.handleChange} /></p>
-    <p ><i>Password: </i><input style={{width:305}}  type="text" value={this.state.password} onChange={this.handlePassChange} /></p>
+    <p ><i>Password: </i><input style={{width:305}}  type="password" value={this.state.password} onChange={this.handlePassChange} /></p>
     <button onClick={() => this.handleSubmit()} value="Submit">Submit</button>
     </div>
     {/* <div style={{width:'100%',height:'20px',marginLeft:10,paddingTop:0,}}> onKeyPress={event.keyCodey == 13 ? () => this.handleSubmit(this.state.value) : false}
