@@ -147,7 +147,7 @@ class Facebook extends Component {
     return (
     <div style={{backgroundColor:'#fff'}}>
     <div style={{width:'100%',height:'60px',backgroundColor:'#3b5998',display:'flex',alignItems:'center'}}>
-        <h1 style={{margin:0,color:'#fff',paddingLeft:30,fontFamily:'italic',textShadow:'1px 1px'}}>HTTP <span style={{fontSize:28}}>Archiver</span></h1>
+        <h1 style={{margin:0,color:'#fff',paddingLeft:30,fontFamily:'italic',}}>HTTP <span style={{fontSize:28}}>Archiver</span></h1>
     </div>
     <div style={{width:'50%',height:'100px',marginLeft:10,paddingTop:"1px"}}>
     <p ><i>Username: </i><input style={{width:300}}  type="text" value={this.state.value} onChange={this.handleChange} /></p>

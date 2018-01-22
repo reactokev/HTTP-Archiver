@@ -136,7 +136,7 @@ class Google extends Component {
     return (
     <div style={{backgroundColor:'#fff'}}>
     <div style={{width:'100%',height:'60px',backgroundColor:'#3b5998',display:'flex',alignItems:'center'}}>
-        <h1 style={{margin:0,color:'#fff',paddingLeft:30,fontFamily:'italic',textShadow:'1px 1px'}}>HTTP <span style={{fontSize:28}}>Archiver</span></h1>
+        <h1 style={{margin:0,color:'#fff',paddingLeft:30,fontFamily:'italic',}}>HTTP <span style={{fontSize:28}}>Archiver</span></h1>
     </div>
     <div style={{width:'50%',height:'50px',marginLeft:10,paddingTop:"1px"}}>
     <p ><i>Enter search keyword(s)</i> <span><input style={{width:'50%',padding:5}}  type="text" value={this.state.value} placeholder='ex: Taylor Swift' onChange={this.handleChange} /><button style={{padding:5}} onClick={() => this.handleSubmit(this.state.value)} value="Submit">Search</button></span></p>
